@@ -4,6 +4,7 @@ require('pry')
 
 require_relative('../customer')
 require_relative('../drink')
+require_relative('../food')
 
 class CustomerTest < MiniTest::Test
 
@@ -11,6 +12,7 @@ class CustomerTest < MiniTest::Test
     @customer1 = Customer.new("Sally", 30, 21)
     @customer2 = Customer.new("Joseph", 12, 41)
     @drink1 = Drink.new("Old Fashioned", 7, 2)
+    @food1 = Food.new("pizza", 5, 10)
   end
 
   def test_customer_name
@@ -38,13 +40,18 @@ class CustomerTest < MiniTest::Test
     assert_equal(16, @customer1.wallet)
   end
 
-  def test_customer_drunkenness__baseline
-    assert_equal(0, @customer1.drunkenness)
-  end
+  # def test_customer_drunkenness__baseline
+  #   assert_equal(0, @customer1.drunkenness)
+  # end
 
-  def test_customer_drunkenness__1_drink
-    @customer1.buys_drink(@drink1)
-    assert_equal(2, @customer1.drunkenness)
+  # def test_customer_drunkenness__1_drink
+  #   @customer1.buys_drink(@drink1)
+  #   assert_equal(2, @customer1.drunkenness)
+  # end
+
+  def test_customer_buys_food
+    @customer1.buys_food(@food1)
+    assert_equal(5, @customer1.drunkenness)
   end
 
 end

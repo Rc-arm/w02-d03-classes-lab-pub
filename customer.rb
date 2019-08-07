@@ -20,4 +20,11 @@ class Customer
     return @drinks.length
   end
 
+  def buys_food(food)
+    @wallet -= food.price
+    @drunkenness -= food.rejuvination_level
+  end
+
+
+
 end
